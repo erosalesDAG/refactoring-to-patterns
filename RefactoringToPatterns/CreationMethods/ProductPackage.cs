@@ -50,5 +50,10 @@ namespace RefactoringToPatterns.CreationMethods
         {
             return new ProductPackage(internetLabel);
         }
+
+        public static ProductPackage InternetAndVoipProduct(string internetLabel, int telephoneNumber)
+        {
+            return new ProductPackage(internetLabel, telephoneNumber);
+        }
     }
 }
