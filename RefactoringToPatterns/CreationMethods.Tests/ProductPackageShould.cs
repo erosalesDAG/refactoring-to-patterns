@@ -37,16 +37,11 @@ namespace RefactoringToPatterns.CreationMethods.Tests
         [Fact]
         public void CreateWithInternetVoipAndTv()
         {
-            var productPackage = FullComboProduct("100MB", 91233788, new[] { "LaLiga", "Estrenos" });
+            var productPackage = ProductPackage.FullComboProduct("100MB", 91233788, new[] { "LaLiga", "Estrenos" });
 
             Assert.True(productPackage.HasInternet());
             Assert.True(productPackage.HasVOIP());
             Assert.True(productPackage.HasTv());
-        }
-
-        private static ProductPackage FullComboProduct(string internetLabel, int telephoneNumber, string[] tvChannels)
-        {
-            return new ProductPackage(internetLabel, telephoneNumber, tvChannels);
         }
     }
 }
