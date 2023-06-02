@@ -21,14 +21,15 @@ namespace RefactoringToPatterns.ComposeMethod
         public void Add(Object element)
         {
             if (_readOnly) return;
-            int newSize = _size + 1;
 
-            if(newSize > _elements.Length)
-            {
-                ExpandElementsSize();
-            }
+            if(IsListFull()) ExpandElementsSize();
 
             _elements[_size++] = element;
+        }
+
+        private bool IsListFull()
+        {
+            return _size + 1 > _elements.Length;
         }
 
         private void ExpandElementsSize()
