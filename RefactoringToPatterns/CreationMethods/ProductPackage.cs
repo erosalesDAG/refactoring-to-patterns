@@ -60,5 +60,10 @@ namespace RefactoringToPatterns.CreationMethods
         {
             return new ProductPackage(internetLabel, tvChannels);
         }
+
+        public static ProductPackage FullComboProduct(string internetLabel, int telephoneNumber, string[] tvChannels)
+        {
+            return new ProductPackage(internetLabel, telephoneNumber, tvChannels);
+        }
     }
 }
