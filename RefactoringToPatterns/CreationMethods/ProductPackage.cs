@@ -45,5 +45,10 @@ namespace RefactoringToPatterns.CreationMethods
         {
             return _tvChannels != null;
         }
+
+        public static ProductPackage InternetProduct(string internetLabel)
+        {
+            return new ProductPackage(internetLabel);
+        }
     }
 }
