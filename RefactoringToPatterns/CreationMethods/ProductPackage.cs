@@ -55,5 +55,10 @@ namespace RefactoringToPatterns.CreationMethods
         {
             return new ProductPackage(internetLabel, telephoneNumber);
         }
+
+        public static ProductPackage InternetAndTvProduct(string internetLabel, string[] tvChannels)
+        {
+            return new ProductPackage(internetLabel, tvChannels);
+        }
     }
 }
