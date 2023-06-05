@@ -7,8 +7,8 @@ namespace RefactoringToPatterns.CommandPattern
     {
         public int _x;
         public int _y;
-        private char _direction;
-        private readonly string _availableDirections = "NESW";
+        public char _direction;
+        public readonly string _availableDirections = "NESW";
         internal readonly string[] _obstacles;
         public bool _obstacleFound;
         private readonly East east;
@@ -17,6 +17,7 @@ namespace RefactoringToPatterns.CommandPattern
         private readonly North north;
         private readonly Dictionary<char, IDirectionCommand> directions = new Dictionary<char, IDirectionCommand>();
         private readonly RotateLeft rotateLeft;
+        private readonly RotateRigth rotateRigth;
 
         public MarsRover(int x, int y, char direction, string[] obstacles)
         {
@@ -33,6 +34,7 @@ namespace RefactoringToPatterns.CommandPattern
             directions.Add('W',west);
             directions.Add('N',north);
             rotateLeft = new RotateLeft(this);
+            rotateRigth = new RotateRigth(this);
         }   
         
         public string GetState()
@@ -54,16 +56,7 @@ namespace RefactoringToPatterns.CommandPattern
                     rotateLeft.Execute();
                 } else if (command == 'R')
                 {
-                    // get new direction
-                    var currentDirectionPosition = _availableDirections.IndexOf(_direction);
-                    if (currentDirectionPosition != 3)
-                    {
-                        _direction = _availableDirections[currentDirectionPosition+1];
-                    }
-                    else
-                    {
-                        _direction = _availableDirections[0];
-                    }
+                    rotateRigth.Execute();
                 }
             }
         }
