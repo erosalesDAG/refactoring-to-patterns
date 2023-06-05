@@ -41,16 +41,16 @@ namespace RefactoringToPatterns.CommandPattern
                     switch (_direction)
                     {
                         case 'E':
-                            east.MoveToEast();
+                            east.Move();
                             break;
                         case 'S':
-                            south.MoveToSouth();
+                            south.Move();
                             break;
                         case 'W':
-                            west.MoveToWest();
+                            west.Move();
                             break;
                         case 'N':
-                            north.MoveToNorth();
+                            north.Move();
                             break;
                     }
                 }
