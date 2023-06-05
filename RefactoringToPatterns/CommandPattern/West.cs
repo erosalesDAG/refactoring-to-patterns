@@ -4,7 +4,7 @@ namespace RefactoringToPatterns.CommandPattern
 {
     public class West
     {
-        private MarsRover _marsRover;
+        private readonly MarsRover _marsRover;
 
         public West(MarsRover marsRover)
         {
