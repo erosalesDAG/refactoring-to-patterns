@@ -56,6 +56,7 @@
     <Compile Include="CommandPattern\IDirectionCommand.cs" />
     <Compile Include="CommandPattern\MarsRover.cs" />
     <Compile Include="CommandPattern\North.cs" />
+    <Compile Include="CommandPattern\RotateLeft.cs" />
     <Compile Include="CommandPattern\South.cs" />
     <Compile Include="CommandPattern\West.cs" />
     <Compile Include="ComposeMethod.Tests\ListShould.cs" />
