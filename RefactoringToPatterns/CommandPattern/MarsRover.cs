@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RefactoringToPatterns.CommandPattern
@@ -14,6 +15,7 @@ namespace RefactoringToPatterns.CommandPattern
         private readonly South south;
         private readonly West west;
         private readonly North north;
+        private readonly Dictionary<char, IDirectionCommand> directions = new Dictionary<char, IDirectionCommand>();
 
         public MarsRover(int x, int y, char direction, string[] obstacles)
         {
@@ -25,6 +27,10 @@ namespace RefactoringToPatterns.CommandPattern
             south = new South(this);
             west = new West(this);
             north = new North(this);
+            directions.Add('E',east);
+            directions.Add('S',south);
+            directions.Add('W',west);
+            directions.Add('N',north);
         }   
         
         public string GetState()
@@ -38,21 +44,7 @@ namespace RefactoringToPatterns.CommandPattern
             {
                 if (command == 'M')
                 {
-                    switch (_direction)
-                    {
-                        case 'E':
-                            east.Move();
-                            break;
-                        case 'S':
-                            south.Move();
-                            break;
-                        case 'W':
-                            west.Move();
-                            break;
-                        case 'N':
-                            north.Move();
-                            break;
-                    }
+                    directions[_direction].Move();
                 }
                 else if(command == 'L')
                 {
