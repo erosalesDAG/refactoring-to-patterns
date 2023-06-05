@@ -15,9 +15,10 @@ namespace RefactoringToPatterns.CommandPattern
         private readonly South south;
         private readonly West west;
         private readonly North north;
-        private readonly Dictionary<char, IDirectionCommand> directions = new Dictionary<char, IDirectionCommand>();
+        public readonly Dictionary<char, IDirectionCommand> directions = new Dictionary<char, IDirectionCommand>();
         private readonly RotateLeft rotateLeft;
         private readonly RotateRigth rotateRigth;
+        private readonly MoveRover moveRover;
 
         public MarsRover(int x, int y, char direction, string[] obstacles)
         {
@@ -35,6 +36,7 @@ namespace RefactoringToPatterns.CommandPattern
             directions.Add('N',north);
             rotateLeft = new RotateLeft(this);
             rotateRigth = new RotateRigth(this);
+            moveRover = new MoveRover(this);
         }   
         
         public string GetState()
@@ -48,7 +50,7 @@ namespace RefactoringToPatterns.CommandPattern
             {
                 if (command == 'M')
                 {
-                    directions[_direction].Move();
+                    moveRover.Execute();
                 }
                 else if(command == 'L')
                 {

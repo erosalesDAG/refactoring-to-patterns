@@ -55,6 +55,7 @@
     <Compile Include="CommandPattern\East.cs" />
     <Compile Include="CommandPattern\IDirectionCommand.cs" />
     <Compile Include="CommandPattern\MarsRover.cs" />
+    <Compile Include="CommandPattern\MoveRover.cs" />
     <Compile Include="CommandPattern\North.cs" />
     <Compile Include="CommandPattern\RotateLeft.cs" />
     <Compile Include="CommandPattern\RotateRigth.cs" />
