@@ -12,6 +12,7 @@ namespace RefactoringToPatterns.CommandPattern
         public bool _obstacleFound;
         private readonly East east;
         private readonly South south;
+        private readonly West west;
 
         public MarsRover(int x, int y, char direction, string[] obstacles)
         {
@@ -21,6 +22,7 @@ namespace RefactoringToPatterns.CommandPattern
             _obstacles = obstacles;
             east = new East(this);
             south = new South(this);
+            west = new West(this);
         }   
         
         public string GetState()
@@ -43,9 +45,7 @@ namespace RefactoringToPatterns.CommandPattern
                             south.MoveToSouth();
                             break;
                         case 'W':
-                            _obstacleFound = _obstacles.Contains($"{_x - 1}:{_y}");
-                            // check if rover reached plateau limit or found an obstacle
-                            _x = _x > 0 && !_obstacleFound ? _x -= 1 : _x;
+                            west.MoveToWest();
                             break;
                         case 'N':
                             _obstacleFound = _obstacles.Contains($"{_x}:{_y - 1}");
